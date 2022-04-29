@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\ציונט - טק קריירה\Judith-Tech-OpenSky\Judith-Tech-OpenSky\Judith-Tech-OpenSky-Model\bin\Debug\Judith-Tech-OpenSky-Model.dll
+C:\Users\user\Desktop\ציונט - טק קריירה\Judith-Tech-OpenSky\Judith-Tech-OpenSky\Judith-Tech-OpenSky-Model\bin\Debug\Judith-Tech-OpenSky-Model.pdb
+C:\Users\user\Desktop\ציונט - טק קריירה\Judith-Tech-OpenSky\Judith-Tech-OpenSky\Judith-Tech-OpenSky-Model\obj\Debug\Judith-Tech-OpenSky-Model.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\ציונט - טק קריירה\Judith-Tech-OpenSky\Judith-Tech-OpenSky\Judith-Tech-OpenSky-Model\obj\Debug\Judith-Tech-OpenSky-Model.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\ציונט - טק קריירה\Judith-Tech-OpenSky\Judith-Tech-OpenSky\Judith-Tech-OpenSky-Model\obj\Debug\Judith-Tech-OpenSky-Model.dll
+C:\Users\user\Desktop\ציונט - טק קריירה\Judith-Tech-OpenSky\Judith-Tech-OpenSky\Judith-Tech-OpenSky-Model\obj\Debug\Judith-Tech-OpenSky-Model.pdb

@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32414.318
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Judith-Tech-OpenSky-Console", "Judith-Tech-OpenSky-Console\Judith-Tech-OpenSky-Console.csproj", "{19233704-B32E-4A6B-9F90-19B746ACD624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Judith-Tech-OpenSky-Entities", "Judith-Tech-OpenSky.Entities\Judith-Tech-OpenSky-Entities.csproj", "{A41AD2D3-83F1-4A26-A3BD-4EB397F8F239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Judith-Tech-OpenSky-DAL", "Judith-Tech-OpenSky.DAL\Judith-Tech-OpenSky-DAL.csproj", "{FAFECDBA-6674-4E69-8597-1B5BF3D148B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Judith-Tech-OpenSky-Model", "Judith-Tech-OpenSky-Model\Judith-Tech-OpenSky-Model.csproj", "{ECEE673D-E389-4C7E-8F3B-65E405D18CD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Judith-Tech-OpenSky", "Judith-Tech-OpenSky\Judith-Tech-OpenSky.csproj", "{8ACC940C-436D-44A7-9F1E-6163737836BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19233704-B32E-4A6B-9F90-19B746ACD624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19233704-B32E-4A6B-9F90-19B746ACD624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19233704-B32E-4A6B-9F90-19B746ACD624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19233704-B32E-4A6B-9F90-19B746ACD624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A41AD2D3-83F1-4A26-A3BD-4EB397F8F239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A41AD2D3-83F1-4A26-A3BD-4EB397F8F239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A41AD2D3-83F1-4A26-A3BD-4EB397F8F239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A41AD2D3-83F1-4A26-A3BD-4EB397F8F239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFECDBA-6674-4E69-8597-1B5BF3D148B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFECDBA-6674-4E69-8597-1B5BF3D148B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFECDBA-6674-4E69-8597-1B5BF3D148B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFECDBA-6674-4E69-8597-1B5BF3D148B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECEE673D-E389-4C7E-8F3B-65E405D18CD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECEE673D-E389-4C7E-8F3B-65E405D18CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECEE673D-E389-4C7E-8F3B-65E405D18CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECEE673D-E389-4C7E-8F3B-65E405D18CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8ACC940C-436D-44A7-9F1E-6163737836BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8ACC940C-436D-44A7-9F1E-6163737836BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8ACC940C-436D-44A7-9F1E-6163737836BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8ACC940C-436D-44A7-9F1E-6163737836BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBE8461C-0A03-4C2B-8E21-40288B2AB8FF}
+	EndGlobalSection
+EndGlobal
