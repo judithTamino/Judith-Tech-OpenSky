@@ -18,15 +18,33 @@ namespace Judith_Tech_OpenSky
         public Form1()
         {
             InitializeComponent();
-            manager.GetFlightData();
+
+            highestFlight_btn.Enabled = false;
+            lowestFlight_btn.Enabled = false;
         }
 
         private void start_btn_Click(object sender, EventArgs e)
         {
-            label3.Text = manager.flightsCounter().ToString();
+            Task task_running = manager.GetFlightData();
+
+            highestFlight_btn.Enabled = true;
+            lowestFlight_btn.Enabled = true;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ChangeFlightsCounter(Task task_running)
+        {
+            while (task_running.Status == TaskStatus.Running)
+            {
+                flights_counter.Text = manager.flightsCounter().ToString();
+            }
+        }
+
+        public void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void highestFlight_btn_Click(object sender, EventArgs e)
         {
 
         }
