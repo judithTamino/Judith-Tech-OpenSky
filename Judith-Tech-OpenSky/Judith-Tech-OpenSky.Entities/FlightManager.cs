@@ -20,33 +20,41 @@ namespace Judith_Tech_OpenSky.Entities
 
         public void Run()
         {
-            Console.WriteLine($"\n\n\nFlights counter {flightsCounter()}");
-            Console.WriteLine($"Last Update {LastUpdate()}");
+            Console.WriteLine($"\nFlights counter: {GetNumberOfFlights()}");
+            Console.WriteLine($"Last Update {LastUpdate()}\n");
 
-            //Console.WriteLine("\n\nCOUNTRIES LIST: ");
-            //GetCountriesNames();
+            /*Console.WriteLine("\nCOUNTRIES LIST:");
+            string[] countries = GetCountriesNames();
+            foreach(string country in countries)
+                Console.WriteLine(country);*/
 
-            //Console.WriteLine("\n\nTOP #5 COUNTRIES: ");
-            //TopFiveCountries();
+            /*Console.WriteLine("\nTOP #5 COUNTRIES:");
+            string[] top_five = TopFiveCountries();
+            foreach(string country in top_five)
+                Console.WriteLine(country);*/
 
-            //Console.WriteLine("\n\n Flights");
-            //DisplayCountriesFlights("Germany");
+            Console.WriteLine("Flights");
+            FlightDetails[] flights = DisplayCountriesFlights("Israel");
+            foreach (var flight in flights)
+                Console.WriteLine(flight.id + " " + flight.origin_country);
 
             var flight_details = HighestFlight();
-            Console.WriteLine($"\n\n Highest flight \n " +
-                $"{flight_details.id} \n " +
-                $"{flight_details.origin_country} \n " +
-                $"{flight_details.longitude} \n " +
-                $"{flight_details.latitude} \n " +
-                $"{flight_details.baro_altitude}");
+            Console.WriteLine($"\nHighest flight\n" +
+            $"{flight_details.id}\n " +
+            $"{flight_details.origin_country}\n " +
+            $"{flight_details.longitude}\n " +
+            $"{flight_details.latitude}\n " +
+            $"{flight_details.baro_altitude}");
 
             var min_flight_details = LowestFlight();
             Console.WriteLine($"\n\n Lowest flight \n " +
-                $"{min_flight_details.id} \n " +
-                $"{min_flight_details.origin_country} \n " +
-                $"{min_flight_details.longitude} \n " +
-                $"{min_flight_details.latitude} \n " +
-                $"{min_flight_details.baro_altitude}");
+            $"{min_flight_details.id} \n " +
+            $"{min_flight_details.origin_country} \n " +
+            $"{min_flight_details.longitude} \n " +
+            $"{min_flight_details.latitude} \n " +
+            $"{min_flight_details.baro_altitude}");
+
+            Console.WriteLine("\n\n\n");
         }
 
         public Task GetFlightData()
@@ -55,17 +63,19 @@ namespace Judith_Tech_OpenSky.Entities
                 while(isGetFlightDataRunning)
                 {
                     System.Threading.Thread.Sleep(10000);
-                    SaveFlightData();
+                    SaveFlights();
                 }
             });
             return task;
         }
 
-        public async void SaveFlightData()
+        public async void SaveFlights()
         {
             APIFlightRequest APIFlightRequest = new APIFlightRequest();
             var flights = await APIFlightRequest.GetFlightDataFromAPI();
-            
+
+            List<FlightDetails> tempFlightList = new List<FlightDetails>();
+
             foreach (var flight in flights.states)
             {
                 FlightDetails flightDetails = new FlightDetails();
@@ -73,7 +83,7 @@ namespace Judith_Tech_OpenSky.Entities
                 flightDetails.id = flight[0].ToString();
                 flightDetails.origin_country = flight[2].ToString();
 
-                if(flight[5] != null)   
+                if (flight[5] != null)
                     flightDetails.latitude = float.Parse(flight[5].ToString());
 
                 if (flight[6] != null)
@@ -82,41 +92,39 @@ namespace Judith_Tech_OpenSky.Entities
                 if (flight[7] != null)
                     flightDetails.baro_altitude = float.Parse(flight[7].ToString());
 
-                _flightsList.Add(flightDetails);
+                tempFlightList.Add(flightDetails);
             }
+
+            _flightsList = tempFlightList;
 
             Run();
         }
-
-        public int flightsCounter()
+            
+    
+        // func => get numbers of flights
+        public int GetNumberOfFlights()
         {
-            var flightsCounter = from flight in _flightsList.ToArray()
-                                 select flight;
-
-            int count = flightsCounter.ToArray().Length;
-            return count;
+            return _flightsList.Count;
         }
 
+        // func => return tha last time there was a request to the api
         public string LastUpdate()
         {
             DateTime dt = DateTime.Now;
             return $"{dt.ToString("d")} {dt.ToString("T")}"; 
         }
 
+        // func => return countries name
         public string[] GetCountriesNames()
         {
             var names = from flight in _flightsList
                         orderby flight.origin_country
                         select flight.origin_country;
 
-            string[] countriesNames =  names.Distinct().ToArray();
+            string[] countries = names.Distinct().ToArray();
+            _countries = countries;
 
-            foreach (string country in countriesNames)
-                Console.WriteLine(country);
-
-            _countries = countriesNames;
-
-            return countriesNames;
+            return countries;
         }
 
         private int[] CountFlightInEachCountry()
@@ -126,10 +134,8 @@ namespace Judith_Tech_OpenSky.Entities
             foreach(var flight in _flightsList)
             {
                 for(int i = 0; i < flightCounter.Length; i++)
-                {
                     if (flight.origin_country == _countries[i])
                         flightCounter[i]++;
-                }
             }
             return flightCounter;
         }
@@ -156,10 +162,6 @@ namespace Judith_Tech_OpenSky.Entities
                 top5[j] = _countries[maxIndex];
                 j++;
             }
-
-            foreach(string name in top5)
-                Console.WriteLine(name);
-
             return top5;
         }
 
@@ -168,10 +170,6 @@ namespace Judith_Tech_OpenSky.Entities
             var flights = from flight in _flightsList
                           where flight.origin_country == name
                           select flight;
-
-            foreach(var flight in flights.ToArray())
-                Console.WriteLine($"{flight.origin_country}   {flight.id}");
-
 
             return flights.ToArray();
         }

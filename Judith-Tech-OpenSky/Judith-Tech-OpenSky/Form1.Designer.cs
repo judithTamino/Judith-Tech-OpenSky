@@ -44,6 +44,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.left = new System.Windows.Forms.TextBox();
+            this.bottom = new System.Windows.Forms.TextBox();
+            this.right = new System.Windows.Forms.TextBox();
+            this.top = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.refresh_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // start_btn
@@ -214,11 +223,106 @@
             this.label6.TabIndex = 15;
             this.label6.Text = "Flights";
             // 
+            // left
+            // 
+            this.left.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.left.Location = new System.Drawing.Point(30, 516);
+            this.left.Name = "left";
+            this.left.Size = new System.Drawing.Size(100, 26);
+            this.left.TabIndex = 16;
+            this.left.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // bottom
+            // 
+            this.bottom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.bottom.Location = new System.Drawing.Point(404, 516);
+            this.bottom.Name = "bottom";
+            this.bottom.Size = new System.Drawing.Size(100, 26);
+            this.bottom.TabIndex = 17;
+            this.bottom.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // right
+            // 
+            this.right.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.right.Location = new System.Drawing.Point(279, 516);
+            this.right.Name = "right";
+            this.right.Size = new System.Drawing.Size(100, 26);
+            this.right.TabIndex = 18;
+            this.right.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // top
+            // 
+            this.top.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.top.Location = new System.Drawing.Point(155, 516);
+            this.top.Name = "top";
+            this.top.Size = new System.Drawing.Size(100, 26);
+            this.top.TabIndex = 19;
+            this.top.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label7.Location = new System.Drawing.Point(26, 483);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(38, 20);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Left";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label8.Location = new System.Drawing.Point(400, 483);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(63, 20);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Bottom";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label9.Location = new System.Drawing.Point(275, 483);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 20);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Right";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.label10.Location = new System.Drawing.Point(151, 483);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(37, 20);
+            this.label10.TabIndex = 23;
+            this.label10.Text = "Top";
+            // 
+            // refresh_btn
+            // 
+            this.refresh_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.refresh_btn.Location = new System.Drawing.Point(543, 508);
+            this.refresh_btn.Name = "refresh_btn";
+            this.refresh_btn.Size = new System.Drawing.Size(133, 42);
+            this.refresh_btn.TabIndex = 24;
+            this.refresh_btn.Text = "Refresh";
+            this.refresh_btn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1386, 594);
+            this.Controls.Add(this.refresh_btn);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.top);
+            this.Controls.Add(this.right);
+            this.Controls.Add(this.bottom);
+            this.Controls.Add(this.left);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -260,6 +364,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Label flights_counter;
+        private System.Windows.Forms.TextBox left;
+        private System.Windows.Forms.TextBox bottom;
+        private System.Windows.Forms.TextBox right;
+        private System.Windows.Forms.TextBox top;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button refresh_btn;
     }
 }
 

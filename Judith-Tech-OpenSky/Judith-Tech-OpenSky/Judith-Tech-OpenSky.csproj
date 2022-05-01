@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Judith-Tech-OpenSky-Model\Judith-Tech-OpenSky-Model.csproj">
+      <Project>{ecee673d-e389-4c7e-8f3b-65e405d18cd4}</Project>
+      <Name>Judith-Tech-OpenSky-Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Judith-Tech-OpenSky.Entities\Judith-Tech-OpenSky-Entities.csproj">
       <Project>{a41ad2d3-83f1-4a26-a3bd-4eb397f8f239}</Project>
       <Name>Judith-Tech-OpenSky-Entities</Name>

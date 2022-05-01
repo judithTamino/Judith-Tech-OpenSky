@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using Judith_Tech_OpenSky.Entities;
+using Judith_Tech_OpenSky_Model;
 
 namespace Judith_Tech_OpenSky
 {
@@ -31,14 +32,6 @@ namespace Judith_Tech_OpenSky
             lowestFlight_btn.Enabled = true;
         }
 
-        private void ChangeFlightsCounter(Task task_running)
-        {
-            while (task_running.Status == TaskStatus.Running)
-            {
-                flights_counter.Text = manager.flightsCounter().ToString();
-            }
-        }
-
         public void label1_Click(object sender, EventArgs e)
         {
 
@@ -46,7 +39,13 @@ namespace Judith_Tech_OpenSky
 
         private void highestFlight_btn_Click(object sender, EventArgs e)
         {
+            var highestFlight = manager.HighestFlight();
 
+            flights_details.Items.Add(highestFlight.id);
+            flights_details.Items.Add(highestFlight.origin_country);
+            flights_details.Items.Add(highestFlight.latitude);
+            flights_details.Items.Add(highestFlight.longitude);
+            flights_details.Items.Add(highestFlight.baro_altitude);
         }
     }
 }
