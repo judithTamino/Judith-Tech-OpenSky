@@ -12,9 +12,10 @@ namespace Judith_Tech_OpenSky_Console
     {
         static void Main(string[] args)
         {
-            FlightManager manager = new FlightManager();
-            manager.GetFlightData();
-            
+           Manager manager = new Manager();
+           manager.RunAll();
+
+            Console.WriteLine(manager._numFlights);
             Console.ReadLine();
         }
     }
