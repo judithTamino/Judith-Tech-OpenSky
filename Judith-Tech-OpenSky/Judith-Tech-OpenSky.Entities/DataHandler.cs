@@ -58,5 +58,72 @@ namespace Judith_Tech_OpenSky.Entities
             _countries = countries.Distinct().ToArray();
             return _countries;
         }
+
+        private int[] CountNumbersOfFlightsInEachCountry()
+        {
+            int[] flightCounter = new int[_countries.Length];
+            foreach (var country in _flights)
+                for (int i = 0; i < flightCounter.Length; i++)
+                    if(country._origin_country == _countries[i])
+                        flightCounter[i]++;
+            return flightCounter;
+        }
+
+        public string[] TopFiveCountries()
+        {
+            int[] numberOfFlightInEachCountry = CountNumbersOfFlightsInEachCountry();
+            string[] topFiveCountries = new string[5];
+
+            int index = 0;
+            while(index < topFiveCountries.Length)
+            {
+                int max = numberOfFlightInEachCountry[0], maxIndex = 0;
+                for (int i = 1; i < numberOfFlightInEachCountry.Length; i++)
+                    if(numberOfFlightInEachCountry[i] > max)
+                    {
+                        max = numberOfFlightInEachCountry[i];
+                        maxIndex = i;
+                    }
+                numberOfFlightInEachCountry[maxIndex] = -1;
+
+                topFiveCountries[index] = _countries[maxIndex];
+                index++;
+            }
+            return topFiveCountries;
+        }
+
+        public FlightDetails[] GetAllFlightsOfSelectedCountry(string name)
+        {
+            var flights = from flight in _flights
+                          where flight._origin_country == name
+                          select flight;
+
+            return flights.ToArray();
+        }
+
+        public FlightDetails GetFlightDetails(string id)
+        {
+            var flight = from flightDetails in _flights
+                         where flightDetails._id == id
+                         select flightDetails;
+
+            return flight.ToArray()[0];
+        }
+
+        public string GetHighestFlightId()
+        {
+            List<FlightDetails> temp = _flights;
+
+            var highestFlight = temp.OrderByDescending(flight => flight._baro_altitude).First();
+            return highestFlight._id;
+        }
+
+        public string GetLowestFlightId()
+        {
+            List<FlightDetails> temp = _flights;
+            var lowestFlight = temp.OrderBy(flight => flight._baro_altitude).First();
+
+            return lowestFlight._id;
+        }
     }
 }
