@@ -125,5 +125,14 @@ namespace Judith_Tech_OpenSky.Entities
 
             return lowestFlight._id;
         }
+
+        public FlightDetails[] Refresh(float top, float bottom, float left, float right)
+        {
+            var flightsArr = from flight in _flights
+                             where flight._latitude > left && flight._latitude < right && flight._longitude < top && flight._longitude > bottom
+                             select flight;
+
+            return flightsArr.ToArray();
+        }
     }
 }

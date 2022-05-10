@@ -13,7 +13,7 @@ namespace Judith_Tech_OpenSky_Model
 
         public override string ToString()
         {
-            return Name + " " + Value;
+            return Value + " " + Name;
         }
     }
 }

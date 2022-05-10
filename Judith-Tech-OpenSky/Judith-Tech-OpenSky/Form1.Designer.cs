@@ -315,6 +315,7 @@
             this.refresh_btn.TabIndex = 24;
             this.refresh_btn.Text = "Refresh";
             this.refresh_btn.UseVisualStyleBackColor = true;
+            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
             // 
             // Form1
             // 

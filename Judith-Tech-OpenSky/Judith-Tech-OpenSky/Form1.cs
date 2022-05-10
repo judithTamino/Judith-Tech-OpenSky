@@ -22,6 +22,7 @@ namespace Judith_Tech_OpenSky
 
             highestFlight_btn.Enabled = false;
             lowestFlight_btn.Enabled = false;
+            refresh_btn.Enabled = false;
         }
 
         private void start_btn_Click(object sender, EventArgs e)
@@ -34,6 +35,14 @@ namespace Judith_Tech_OpenSky
             manager.DataHandler.HandlerLoadData += ActivateBtn;
 
             UpdateControls();
+
+            start_btn.Enabled = false;
+        }
+
+        private void stop_btn_Click(object sender, EventArgs e)
+        {
+            manager.DataHandler.isGetFlightDataRunning = false;
+            start_btn.Enabled = true;
         }
 
         private void DataHandler_HandlerLoadData()
@@ -85,12 +94,15 @@ namespace Judith_Tech_OpenSky
             top_five.Items.Clear();
         }
 
-        private void ShowCountriesFlights(string country)
+        private void ShowFlights(FlightDetails[] flightDetails)
         {
             flights.Items.Clear();
 
-            var countryFlights = manager.DataHandler.GetAllFlightsOfSelectedCountry(country);
-            foreach (var flight in countryFlights)
+            // check if array ia empty
+            if (flightDetails.Length == 0)
+                MessageBox.Show("No Data");
+
+            foreach (var flight in flightDetails)
                 flights.Items.Add(new ListItem { Name = flight._origin_country, Value = flight._id });
         }
 
@@ -106,16 +118,31 @@ namespace Judith_Tech_OpenSky
             flights_details.Items.Add(flightDetails._baro_altitude);
         }
 
+        private void ActivateBtn()
+        {
+            if (highestFlight_btn.InvokeRequired)
+                highestFlight_btn.Invoke(new Action(() =>
+                {
+                    highestFlight_btn.Enabled = true;
+                    lowestFlight_btn.Enabled = true;
+                    refresh_btn.Enabled = true;
+                }));
+        }
+
         private void countries_list_SelectedIndexChanged(object sender, EventArgs e)
         {
             string countryName = countries_list.SelectedItem.ToString();
-            ShowCountriesFlights(countryName);
+            var countryFlights = manager.DataHandler.GetAllFlightsOfSelectedCountry(countryName);
+
+            ShowFlights(countryFlights);
         }
 
         private void top_five_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string name = top_five.SelectedItem.ToString();
-            ShowCountriesFlights(name);
+            string countryName = top_five.SelectedItem.ToString();
+            var countryFlights = manager.DataHandler.GetAllFlightsOfSelectedCountry(countryName);
+
+            ShowFlights(countryFlights);
         }
 
         private void flights_SelectedIndexChanged(object sender, EventArgs e)
@@ -136,20 +163,15 @@ namespace Judith_Tech_OpenSky
             ShowFlightsDetails(flightId);
         }
 
-
-        private void ActivateBtn()
+        private void refresh_btn_Click(object sender, EventArgs e)
         {
-            if (highestFlight_btn.InvokeRequired)
-                highestFlight_btn.Invoke(new Action(() =>
-                {
-                    highestFlight_btn.Enabled = true;
-                    lowestFlight_btn.Enabled = true;
-                }));
-        }
+            float Top = float.Parse(top.Text),
+                Bottom = float.Parse(bottom.Text),
+                Left = float.Parse(left.Text),
+                Right = float.Parse(right.Text);
 
-        private void stop_btn_Click(object sender, EventArgs e)
-        {
-            manager.DataHandler.isGetFlightDataRunning = false;
+           var flightsList =  manager.DataHandler.Refresh(Top, Bottom, Left, Right);
+            ShowFlights(flightsList);
         }
     }
 }
