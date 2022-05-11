@@ -52,6 +52,7 @@ namespace Judith_Tech_OpenSky.Entities
         public string[] GetCountriesName()
         {
             var countries = from country in _flights
+                            where country._origin_country != ""
                             orderby country._origin_country
                             select country._origin_country;
 

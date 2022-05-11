@@ -49,11 +49,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Judith-Tech-OpenSky.Entities\Judith-Tech-OpenSky-Entities.csproj">
-      <Project>{a41ad2d3-83f1-4a26-a3bd-4eb397f8f239}</Project>
-      <Name>Judith-Tech-OpenSky-Entities</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
